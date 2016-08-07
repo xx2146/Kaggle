@@ -1,0 +1,22 @@
+1. We don't want a plain white notebook
+2. It is very annoying that the notebook always displays a fixed width (usually not wide enough) even you double the width of the browser, and the long formula you type in sticks out of the frame which triggers lots of discomfort.
+
+We work with ipython notebook everyday, we want to make it beautiful, since we already have reflex triggering a lot of discomfort.
+
+Do the following procedure:
+1. Find ~/.jupyter/custom/custom.css, if there is no such folder and file, create them.
+2. Go and find themes, such as these https://github.com/dunovank/jupyter-themes, copy the contents of the file into custom.css
+
+3. Restart the jupyter notebook.
+4. Now you see the theme! But the problem is the python plots have black ticks, if your theme is dark, it is hard to read the plots. then you need to configure your matplotlib:
+
+          Find the  matplotlib config file by running: 
+             >>> import matplotlib
+             >>> matplotlib.matplotlib_fname()
+          it shows the config file, open the file and un-comment the line "xtick.color          :  k", and                     change k to white.   then the plots are readable!
+
+5. Then, the display size, go back to custom.css, add the following: 
+
+.container { width:100% !important; }
+
+Restart the jupyter and see the magic.
